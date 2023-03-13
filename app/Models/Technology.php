@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Technology extends Model
 {
     use HasFactory;
+
+    public function projects()
+    {
+        $this->belongsToMany(Project::class);
+    }
 }
