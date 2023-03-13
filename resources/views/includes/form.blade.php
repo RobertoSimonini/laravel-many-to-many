@@ -28,17 +28,12 @@
             <textarea class="form-control" id="description" rows="3" placeholder="Inserisci la descrizione del progetto" name="description" required>{{old('description', $project->description) }}</textarea>
         </div>
 
-        <div class="col-4 mb-3">
+        <div class="col-6 mb-3">
             <label for="full_code" class="form-label"> Full Code </label>
             <input type="url" class="form-control" id="full_code" placeholder="Inserisci l'url al codice intero" name="full_code" value="{{old('full_code', $project->full_code)}}">
         </div>
 
-        <div class="col-4 mb-3">
-            <label for="techonologies_used" class="form-label">Technologies used </label>
-            <input type="text" class="form-control" id="techonologies_used" placeholder="Inserisci le tecnologie utilizzate" name="techonologies_used" value="{{old('techonologies_used', $project->techonologies_used)}}" required>
-        </div>
-
-        <div class="col-4 mb-3">
+        <div class="col-6 mb-3">
             <label for="type_id" class="form-label">Type </label>
             <select class="form-select" name="type_id" id="type_id" aria-label="Default select example">
                 <option value="">No Type</option>
