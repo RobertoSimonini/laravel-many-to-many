@@ -100,7 +100,7 @@ class ProjectController extends Controller
             'image' => ['file'],
             'description' => ['string', 'required'],
             'full_code' => ['string', 'required',],
-            'techonologies_used' => ['string', 'required'],
+            'technologies' => ['nullable', 'exists:technologies,id'],
         ]);
 
         $data = $request->all();
@@ -113,7 +113,7 @@ class ProjectController extends Controller
 
         $project->update($data);
 
-        if (Arr::exists($data, 'technologies')) $project->technologies()->sync($data['tags']);
+        if (Arr::exists($data, 'technologies')) $project->technologies()->sync($data['technologies']);
         else $project->technologies()->detach();
 
         return redirect()->route('admin.projects.show', $project->id)->with('type', 'warning')->with('msg', "Il Progetto $project->title è stato modificato con successo.");
